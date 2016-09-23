@@ -1,0 +1,20 @@
+package com.weimengli.camara;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
+
+public class MainActivity extends Activity {
+	public Button takephoto;
+	public ImageView imagview;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		this.setContentView(R.layout.activity_main);
+		
+		
+	}
+
+}
