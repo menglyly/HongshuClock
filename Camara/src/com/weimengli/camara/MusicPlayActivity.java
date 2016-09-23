@@ -1,0 +1,87 @@
+package com.weimengli.camara;
+
+import java.io.File;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.os.Environment;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class MusicPlayActivity extends Activity implements OnClickListener{
+	
+	public Button play,pause,stop,viedio_play;
+	public MediaPlayer mediaplayer = new MediaPlayer();
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		this.setContentView(R.layout.activity_musicplay);
+		play = (Button)findViewById(R.id.play);
+		pause = (Button) findViewById(R.id.pause);
+		stop = (Button)findViewById(R.id.stop);
+		viedio_play = (Button)findViewById(R.id.viedio_play);
+		play.setOnClickListener(this);
+		pause.setOnClickListener(this);
+		stop.setOnClickListener(this);
+		viedio_play.setOnClickListener(this);
+		initMediaPlayer();
+	}
+	
+
+	private void initMediaPlayer() {
+		// TODO Auto-generated method stub
+		//事先放入sd卡中，读取sd卡中的music.mp3文件
+		File musicfile = new File(Environment.getExternalStorageDirectory(),"music.mp3");
+		try{
+			//放置音频路径
+			mediaplayer.setDataSource(musicfile.getPath());
+			mediaplayer.prepare();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch(v.getId()){
+		case R.id.play:
+			if(mediaplayer.isPlaying()){
+				mediaplayer.start();
+			}
+			break;
+		case R.id.pause:
+			if(mediaplayer.isPlaying()){
+				mediaplayer.pause();
+			}
+			break;
+		case R.id.stop:
+			if(mediaplayer.isPlaying()){
+				mediaplayer.reset();
+				initMediaPlayer();
+			}
+			break;
+		case R.id.viedio_play:
+			Intent i = new Intent(MusicPlayActivity.this,VidioPlayActivity.class);
+			startActivity(i);
+			break;
+		}
+		
+	}
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		if(mediaplayer!= null){
+			mediaplayer.stop();
+			mediaplayer.release();
+		}
+	}
+
+}

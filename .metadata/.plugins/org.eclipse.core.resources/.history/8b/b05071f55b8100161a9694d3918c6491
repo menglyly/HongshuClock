@@ -1,0 +1,60 @@
+package com.weimengli.camara;
+
+import java.io.File;
+
+import android.app.Activity;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.os.Environment;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class MusicPlayActivity extends Activity implements OnClickListener{
+	
+	public Button play,pause,stop;
+	public MediaPlayer mediaplayer = new MediaPlayer();
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		this.setContentView(R.layout.activity_musicplay);
+		play = (Button)findViewById(R.id.play);
+		pause = (Button) findViewById(R.id.pause);
+		stop = (Button)findViewById(R.id.stop);
+		play.setOnClickListener(this);
+		pause.setOnClickListener(this);
+		stop.setOnClickListener(this);
+		initMediaPlayer();
+	}
+	
+
+	private void initMediaPlayer() {
+		// TODO Auto-generated method stub
+		File musicfile = new File(Environment.getExternalStorageDirectory(),"music.mp3");
+		try{
+			//指定音频文件路径
+			mediaplayer.setDataSource(musicfile.getPath());
+			mediaplayer.prepare();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch(v.getId()){
+		case R.id.play:
+			break;
+		case R.id.pause:
+			break;
+		case R.id.stop:
+			break;
+		}
+		
+	}
+
+}
