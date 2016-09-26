@@ -1,0 +1,25 @@
+package com.weimenglyly.ondrawdemo;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+
+public class MainActivity extends Activity {
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		this.setContentView(R.layout.activity_main);
+		
+		ScrollView layout = (ScrollView)findViewById(R.id.try_something);
+		final DrawView view=new DrawView(this);  
+        //view.setMinimumHeight(0);  
+        //view.setMinimumWidth(0);  
+        //通知view组件重绘    
+        view.invalidate();  
+        layout.addView(view);
+	}
+
+}

@@ -1,0 +1,39 @@
+package com.weimenglyly.ondrawdemo;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.view.View;
+
+public class DrawView extends View {
+
+	public DrawView(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	protected void onDraw(Canvas canvas) {
+		// TODO Auto-generated method stub
+		super.onDraw(canvas);
+		/*
+		 * 1.Paint画笔，2.Canvas画布，
+		 */
+		Paint paint = new Paint();
+		paint.setColor(Color.CYAN);//设置笔的颜色为红紫色
+		paint.setTextSize(16);//设置文本字体大小无效
+		
+		canvas.drawText("画圆圈对比大小和锯齿效果", 20,20, paint);//经过测试不知道为啥效果不行字特别小
+		canvas.drawCircle(50, 20, 20, paint);//小圆
+		paint.setAntiAlias(true);//设置画笔锯齿效果，true就是去除，边框就会很粗糙
+		canvas.drawCircle(100, 20, 40, paint);//大圆
+		
+		canvas.drawText("画线和弧线", 16, 22, paint);
+		canvas.drawLine(50, 20, 12, 40,paint);//线
+		canvas.drawLine(120, 20, 12, 10, paint);//斜线
+		paint.setStyle(Paint.Style.STROKE);
+		
+		
+	}
+
+}
