@@ -1,0 +1,25 @@
+package com.weimenglyly.diffuseview;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class MainActivity extends Activity{
+	
+	 private DiffuseView mDiffuseView;
+	 boolean isAction = true;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		this.setContentView(R.layout.activity_main);
+		mDiffuseView = (DiffuseView) findViewById(R.id.diffuseView);
+		if(isAction){
+			mDiffuseView.start();
+			isAction = false;
+		}else{
+			mDiffuseView.stop();
+		}
+	}
+
+}

@@ -1,0 +1,7 @@
+package com.weimenglyly.diffuseview;
+
+import android.view.View;
+
+public class DiffuseView extends View {
+
+}

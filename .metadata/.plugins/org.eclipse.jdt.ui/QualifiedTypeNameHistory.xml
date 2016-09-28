@@ -17,4 +17,7 @@
 <fullyQualifiedTypeName name="com.weimengli.camara.R.layout"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="android.widget.LinearLayout"/>
+<fullyQualifiedTypeName name="android.graphics.Color"/>
+<fullyQualifiedTypeName name="android.widget.ScrollView"/>
 </qualifiedTypeNameHistroy>

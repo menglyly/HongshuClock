@@ -1,0 +1,14 @@
+package com.weimenglyly.diffuseview;
+
+import android.content.Context;
+import android.view.View;
+
+public class DiffuseView extends View {
+	private int mClolor = getResources().getColor(R.color.colorAccent)
+
+	public DiffuseView(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+	}
+
+}
